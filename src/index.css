@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@base {
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+  }
+
+
+
+}
+
+:root {
+  --c-slate-800: #0C0C12;
+  --c-slate-700: #161621;
+  --c-border: #F29E20;
+  --c-red-700: #C61A1A;
+  --c-gray-700: #606060;
+  --c-white: #FFFFFF;
+}
+
+body {
+  background-color: var(--c-slate-800);
+  color: var(--c-white);
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+main {
+  width: 100vw;
+  padding: 2rem;
+}
+
+.card__wrapper::-webkit-scrollbar-thumb {
+  background-color: var(--c-border);
+  border-radius: 1rem;
+}
+
+.card__wrapper::-webkit-scrollbar {
+  background-color: var(--c-gray-700);
+  border-radius: 1rem;
+  width: .4rem;
+}
+
+
+@layer components {
+  .input {
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    gap:1.3rem;
+    flex: 1;
+
+    &>label {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    &>input {
+      background: var(--c-slate-700);
+      padding: .8rem .8rem;
+      border-radius: .5rem;
+      border: none;
+      outline: none;
+      width: 475px;
+      font-size: 1.4rem;
+    }
+  }
+
+.not-active::after {
+  opacity: 0 ;
+
+}
+  .active::after{
+    opacity: 1 ;
+  }
+
+}
