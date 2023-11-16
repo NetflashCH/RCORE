@@ -5,7 +5,7 @@ const Header = () => {
   const wrapperRef = React.useRef() as React.MutableRefObject<HTMLUListElement>;
   const activeHandler = (e: React.MouseEvent) => {
     const lis = wrapperRef.current.querySelectorAll(
-      "li",
+      "li"
     ) as NodeListOf<HTMLLIElement>;
 
     lis.forEach((li) => {
@@ -38,7 +38,7 @@ const Header = () => {
           <li className="order-y py-[.8rem] pr-[2.9rem] border-[#676767] relative">
             <Link
               onClick={activeHandler}
-              className={`not-active active after:bg-[#F29E20] after:absolute after:right-0 after:top-0   after:content-[''] after:block after:h-full after:w-4`}
+              className={`link not-active active after:bg-[#F29E20] after:absolute after:right-0 after:top-0   after:content-[''] after:block after:h-full after:w-4`}
               to="/"
             >
               Home
@@ -47,7 +47,7 @@ const Header = () => {
           <li className="border-b py-[.8rem] pr-[2.9rem] border-[#676767] relative">
             <Link
               onClick={activeHandler}
-              className={`not-active after:bg-[#F29E20] after:absolute after:right-0 after:top-0  after:content-[''] after:block after:h-full after:w-4`}
+              className={`link not-active after:bg-[#F29E20] after:absolute after:right-0 after:top-0  after:content-[''] after:block after:h-full after:w-4`}
               to="/add-whiteboard"
             >
               Add Whiteboard
