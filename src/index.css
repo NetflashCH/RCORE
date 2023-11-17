@@ -39,6 +39,9 @@ main {
   padding: 2rem;
 }
 
+.button{
+  color: black !important;
+}
 .card__wrapper::-webkit-scrollbar-thumb {
   background-color: var(--c-border);
   border-radius: 1rem;
@@ -56,7 +59,7 @@ main {
     display: grid;
     align-items: center;
     justify-content: space-between;
-    gap:1.3rem;
+    gap: 1.3rem;
     flex: 1;
 
     &>label {
@@ -73,14 +76,17 @@ main {
       width: 475px;
       font-size: 1.4rem;
     }
+
+
   }
 
-.not-active::after {
-  opacity: 0 ;
+  .not-active::after {
+    opacity: 0;
 
-}
-  .active::after{
-    opacity: 1 ;
+  }
+
+  .active::after {
+    opacity: 1;
   }
 
 }

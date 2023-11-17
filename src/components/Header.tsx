@@ -35,19 +35,19 @@ const Header = () => {
         </a>
         {/* each li in this ul will have after sudo el with bg gold*/}
         <ul className="grid center text-[1.4rem]" ref={wrapperRef}>
-          <li className="order-y py-[.8rem] pr-[2.9rem] border-[#676767] relative">
+          <li className="order-y py-[.8rem] border-[#676767] border-t pr-[2.9rem] border-[#676767] relative">
             <Link
               onClick={activeHandler}
-              className={`link not-active active after:bg-[#F29E20] after:absolute after:right-0 after:top-0   after:content-[''] after:block after:h-full after:w-4`}
+              className={`link not-active active after:bg-[#F29E20] after:absolute after:right-0 after:top-0  after:content-[''] after:block after:h-full after:w-2`}
               to="/"
             >
               Home
             </Link>
           </li>
-          <li className="border-b py-[.8rem] pr-[2.9rem] border-[#676767] relative">
+          <li className="border-y py-[.8rem] pr-[2.9rem] border-[#676767] relative">
             <Link
               onClick={activeHandler}
-              className={`link not-active after:bg-[#F29E20] after:absolute after:right-0 after:top-0  after:content-[''] after:block after:h-full after:w-4`}
+              className={`link not-active after:bg-[#F29E20] after:absolute after:right-0 after:top-0  after:content-[''] after:block after:h-full after:w-2`}
               to="/add-whiteboard"
             >
               Add Whiteboard

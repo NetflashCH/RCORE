@@ -15,7 +15,7 @@ const Edit: React.FC<EditType> = ({ item }) => {
 
   return (
     <div className=" w-[1090.2px] px-4 grid gap-6">
-      <h2 className="text-2xl font-bold">{item.name}</h2>
+      <h2 className="flex items-end text-2xl font-bold">{item.name}</h2>
 
       <div className="bg-[#161621]  rounded-[.5rem] grid gap-[2rem] pt-4 pb-[2.5rem] px-[2.5rem] ">
         <ul className=" grid gap-[1rem] pt-[1rem] pb-[3rem] border-b-2 border-zinc-700">

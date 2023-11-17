@@ -11,7 +11,7 @@ function App() {
           flex
           place-content-center
           space-between
-          gap-8
+          gap-4
           mx-auto
           w-[1358.220px]
           h-[879px]
