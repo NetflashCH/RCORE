@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+    <link rel="stylesheet" href="./assets/style.css">
+  </head>
+  <body>
+    <div id="root" state="hidden">
+        <main class="flex place-content-center space-between gap-8 mx-auto w-[1536px]">
+            <header class="py-[1.5rem] border-r border-[#676767] min-w-[250px]">
+                <nav class="grid center gap-[2rem]">
+                    <a href="/"><img src="./assets/logo.png" width="100" height="64" class="logo" alt="RCORE logo" /></a>
+
+                    <ul class="grid center text-[1.4rem]">
+                        <li id="home" class="border-y py-[.8rem] pr-[2.9rem] border-[#676767]"><a href="#">Home</a></li>
+                        <li id="createWhiteboard" class="border-b py-[.8rem] pr-[2.9rem] border-[#676767]"><a href="#">Add Whiteboard</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <section class="w-[1090.2px]" id="overview">
+                <form action="javascript:void(0);" class="search flex center start bg-[#161621] relative h-[50px] mb-[30px]">
+                    <p class="tooltip_search" data-text="You can use different search options - model: / url: / distance:">
+                        <svg fill="white" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute top-1/2 left-3 -translate-y-1/2">
+                            <path
+                                d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"
+                            ></path>
+                        </svg>
+                    </p>
+                    <input id="searchbar" type="text" placeholder="Search.." class="border-none w-full pl-[2.9rem] focus-visible:outline-none py-[.5rem] bg-transparent" />
+                </form>
+
+                <ul id="whiteboards_list" class="card__wrapper grid cneter grid-cols-2 gap-[2rem] overflow-y-auto h-[735px]">
+                </ul>
+            </section>
+            <section class=" w-[1090.2px] grid gap-6" id="details">
+                <h2 class="flex items-end text-2xl font-[500] text-[28]" id="detailsId">Testing Id 2348459521</h2>
+                <div class="bg-[#161621] rounded-[.5rem] grid gap-[2rem] pt-4 pb-[2.5rem] px-[2.5rem] ">
+                    <ul class=" grid gap-[1rem] pt-[3rem] pb-[3rem] border-b-2 border-zinc-700">
+                        <li class="flex center text-[1.1rem] font-[500]"><span
+                                class="w-[35%]">Model</span><span id="detailsModel">recore-prop-whiteboard large</span></li>
+                        <li class="flex center text-[1.1rem] font-[500]"><span class="w-[35%]">URL</span><span id="detailsUrl">- </span></li>
+                        <li class="flex center text-[1.1rem] font-[500]"><span class="w-[35%]" id="detailsPosition">Position</span><span>X:4120, Y:-1016,
+                                Z:-1016</span></li>
+                        <li class="flex center text-[1.1rem] font-[500]"><span class="w-[35%]">Read Only</span><span id="detailsRead">false </span>
+                        </li>
+                        <li class="flex center text-[1.1rem] font-[500]"><span class="w-[35%]">Ace
+                                Permissions</span><span id="detailsPermissions">false</span></li>
+                        <li class="flex center text-[1.1rem] font-[500]"><span class="w-[35%]">Jobs</span><span id="detailsJobs">-</span></li>
+                        <li class="flex center text-[1.1rem] font-[500]"><span class="w-[35%]">Grades</span><span id="detailsGrades">-</span></li>
+                        <li class="flex center text-[1.1rem] font-[500]"><span class="w-[35%]">Interaction
+                                Distance</span><span id="detailsDistance">2</span></li>
+                    </ul>
+                    <div class="flex items-center justify-between">
+                        <button type="button" class="px-6 py-3 text-md font-[500] bg-[#F29E20] rounded-lg" id="detailsChangePosition">Change Position / Rotation</button>
+                        <button type="button" class="px-6 py-3 text-md font-[500] bg-[#F29E20] rounded-lg" id="detailsChangeScaleform">Change Scaleform</button>
+                        <button type="button" class="px-6 py-3 text-md font-[500] bg-[#F29E20] rounded-lg" id="detailsTeleport">Teleport to Board</button>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button id="detailsEdit" type="button" class="flex items-center gap-3 w-[150px] justify-center px-6 py-3 text-md font-500 gap-[1rem] bg-[#F29E20] rounded-lg text-[20]"><svg
+                                width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#282B43"
+                                class="my-auto">
+                                <path
+                                    d="M12.8995 6.85431L17.1421 11.0969L7.24264 20.9964H3V16.7538L12.8995 6.85431ZM14.3137 5.44009L16.435 3.31877C16.8256 2.92825 17.4587 2.92825 17.8492 3.31877L20.6777 6.1472C21.0682 6.53772 21.0682 7.17089 20.6777 7.56141L18.5563 9.68273L14.3137 5.44009Z">
+                                </path>
+                            </svg><span class="text-[1.1rem] font-[60 0] my-auto">Edit</span></button>
+                        <button type="button" id="detailsDelete"
+                            class="flex items-center gap-3 w-[150px] justify-center px-6 py-3 text-md font-500 gap-[1rem] bg-[#F29E20] rounded-lg text-[20"><svg
+                                width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#282B43"
+                                class="my-auto">
+                                <path
+                                    d="M12.8995 6.85431L17.1421 11.0969L7.24264 20.9964H3V16.7538L12.8995 6.85431ZM14.3137 5.44009L16.435 3.31877C16.8256 2.92825 17.4587 2.92825 17.8492 3.31877L20.6777 6.1472C21.0682 6.53772 21.0682 7.17089 20.6777 7.56141L18.5563 9.68273L14.3137 5.44009Z">
+                                </path>
+                            </svg><span class="text-[1.1rem] font-[500] my-auto">Delete</span></button></div>
+                </div>
+                <button class="flex items-center justify-between gap-[1rem]" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="#282B43"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+                    <span>Back to Overview</span>
+                </button>
+            </section>
+        </main>
+    </div>    
+    <script src="./assets/script.js"></script>
+  </body>
+</html>
