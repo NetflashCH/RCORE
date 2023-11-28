@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { RootState } from "../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import Edit from "./Edit";
-import { cardActive, dataTypes, filterHandler } from "../store/Data";
+import { cardActive, dataTypes } from "../store/Data";
 
-const Home = () => {
+export const Home = () => {
   const store = useSelector((state: RootState) => state.data);
   const disptch = useDispatch();
 
@@ -14,7 +14,7 @@ const Home = () => {
     setreducer(!reducer);
   }, [disptch]);
 
-  const filterHandlere = (e) => {
+  const filterHandler = (e) => {
     disptch(filterHandler(e));
   };
 
@@ -39,7 +39,7 @@ const Home = () => {
               onChange={(e) => {
                 e.preventDefault();
 
-                filterHandlere(e.target.value);
+                filterHandler(e.target.value);
               }}
               className="border-none w-full  pl-[2.9rem] focus-visible:outline-none  py-[.5rem] bg-transparent"
             />
@@ -134,5 +134,3 @@ const Home = () => {
     </>
   );
 };
-
-export default Home;

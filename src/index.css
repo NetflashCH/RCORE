@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 @base {
-
   *,
   *::before,
   *::after {
@@ -11,19 +10,17 @@
     padding: 0;
     box-sizing: border-box;
     user-select: none;
+    font-family: "Poppins", sans-serif;
   }
-
-
-
 }
 
 :root {
-  --c-slate-800: #0C0C12;
+  --c-slate-800: #0c0c12;
   --c-slate-700: #161621;
-  --c-border: #F29E20;
-  --c-red-700: #C61A1A;
+  --c-border: #f29e20;
+  --c-red-700: #c61a1a;
   --c-gray-700: #606060;
-  --c-white: #FFFFFF;
+  --c-white: #ffffff;
 }
 
 body {
@@ -39,7 +36,7 @@ main {
   padding: 2rem;
 }
 
-.button{
+.button {
   color: black !important;
 }
 .card__wrapper::-webkit-scrollbar-thumb {
@@ -50,9 +47,8 @@ main {
 .card__wrapper::-webkit-scrollbar {
   background-color: var(--c-gray-700);
   border-radius: 1rem;
-  width: .4rem;
+  width: 0.4rem;
 }
-
 
 @layer components {
   .input {
@@ -62,31 +58,88 @@ main {
     gap: 1.3rem;
     flex: 1;
 
-    &>label {
-      font-size: 1.2rem;
+    & > label {
+      font-size: 1rem;
       font-weight: 600;
     }
 
-    &>input {
+    & > input {
       background: var(--c-slate-700);
-      padding: .8rem .8rem;
-      border-radius: .5rem;
+      padding: 0.8rem 0.8rem;
+      border-radius: 0.5rem;
       border: none;
       outline: none;
       width: 475px;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
     }
-
-
   }
 
   .not-active::after {
     opacity: 0;
-
   }
 
   .active::after {
     opacity: 1;
   }
 
+  .tootip,
+  .tootip2 {
+    position: relative;
+
+    &:hover::after,
+    &:hover::before {
+      opacity: 1;
+    }
+  }
+
+  .tootip::after,
+  .tootip2::after {
+    content: "Click to teleport to the whiteboard";
+    position: absolute;
+    top: 270%;
+    transform: translateY(-50%);
+    left: 100%;
+    margin-left: -145px;
+    width: 210px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #f29e20;
+    color: #fff;
+    text-align: center;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+    position: absolute;
+    z-index: 10;
+  }
+
+  .tootip::before,
+  .tootip2::before {
+    content: "";
+    position: absolute;
+    left: 100%;
+    margin-left: -23px;
+    top: 100%;
+    transform: translateY(-50%) rotate(90deg);
+    border: 10px solid #f29e20;
+    border-color: transparent #f29e20 transparent transparent;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+    z-index: 10;
+  }
+
+  .tootip2::after {
+    top: 80%;
+    left: 80%;
+  }
+
+  .tootip2::before {
+    top: 50%;
+    left: 80%;
+  }
 }
