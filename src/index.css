@@ -10,7 +10,7 @@
     padding: 0;
     box-sizing: border-box;
     user-select: none;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 }
 
@@ -24,7 +24,6 @@
 }
 
 body {
-  background-color: var(--c-slate-800);
   color: var(--c-white);
   height: 100vh;
   display: grid;
@@ -33,7 +32,9 @@ body {
 
 main {
   width: 100vw;
-  padding: 2rem;
+  padding: 3rem;
+  background-color: var(--c-slate-800);
+  border-radius: 1rem;
 }
 
 .button {
@@ -67,7 +68,7 @@ main {
       background: var(--c-slate-700);
       padding: 0.8rem 0.8rem;
       border-radius: 0.5rem;
-      border: none;
+      border: 2px solid transparent;
       outline: none;
       width: 475px;
       font-size: 1.2rem;
@@ -94,7 +95,6 @@ main {
 
   .tootip::after,
   .tootip2::after {
-    content: "Click to teleport to the whiteboard";
     position: absolute;
     top: 270%;
     transform: translateY(-50%);
@@ -115,9 +115,16 @@ main {
     z-index: 10;
   }
 
+  .tootip::after {
+    content: 'Click to teleport to the whiteboard';
+  }
+  .tootip2::after {
+    content: 'Click for more details';
+  }
+
   .tootip::before,
   .tootip2::before {
-    content: "";
+    content: '';
     position: absolute;
     left: 100%;
     margin-left: -23px;
@@ -134,12 +141,19 @@ main {
   }
 
   .tootip2::after {
-    top: 80%;
+    top: 70%;
     left: 80%;
   }
 
   .tootip2::before {
     top: 50%;
     left: 80%;
+  }
+
+  .wrong {
+    border: 2px solid red !important;
+  }
+  .correct {
+    border: 2px solid green !important;
   }
 }
