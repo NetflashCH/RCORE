@@ -4,11 +4,25 @@ import Header from './components/Header'
 import Home from './components/Home'
 import EditData from './components/EditData'
 import PageWrapper from './components/PageWrapper'
+import { useEffect, useRef } from 'react'
 
 function App() {
+  const mainRef = useRef<HTMLMediaElement>(null)
+
+  useEffect(() => {
+    window.addEventListener('keydown', (e) => {
+      console.log(e.key)
+
+      if (e.key === 'Escape') {
+        mainRef.current?.classList.toggle('show')
+      }
+    })
+  }, [])
+
   return (
     <>
       <main
+        ref={mainRef}
         className='
           flex
           place-content-center
@@ -17,6 +31,7 @@ function App() {
           mx-auto
           w-[1358.220px]
           h-[879px]
+          opacity-0
         '
       >
         <Header />

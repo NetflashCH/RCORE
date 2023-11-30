@@ -110,7 +110,7 @@ const Edit: React.FC<EditType> = ({ item }) => {
           </button>
         </div>
 
-        <div className='flex items-center justify-start gap-[2rem]'>
+        <div className='flex items-center justify-between gap-[2rem]'>
           <button
             type='button'
             onClick={() => {
