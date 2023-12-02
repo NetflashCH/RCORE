@@ -26,10 +26,10 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className='w-[1090.2px] overflow-hidden'
+          transition={{ duration: 1 }}
+          className='w-[1090.2px] overflow-hidden pl-4 '
         >
-          <form className='flex center start bg-[#161621] relative h-[50px] mb-[30px]'>
+          <form className='flex center start bg-[#161621] relative h-[50px] mb-[30px] w-[960px] rounded-lg tootip3'>
             <svg
               fill='white'
               width={24}
@@ -52,7 +52,7 @@ const Home = () => {
             />
           </form>
 
-          <ul className='card__wrapper grid cneter grid-cols-2 place-content-start gap-[1rem] overflow-y-auto h-[700px]'>
+          <ul className='card__wrapper grid cneter grid-cols-2 place-content-start gap-[1rem] overflow-y-auto h-[700px] pr-[2rem]'>
             {store.data.map((item, index) => {
               return (
                 <>
@@ -101,12 +101,12 @@ const Home = () => {
                             height='24'
                             viewBox='0 0 24 24'
                             xmlns='http://www.w3.org/2000/svg'
-                            fill='white'
+                            fill='#0c0c12'
                             className='my-auto'
                           >
                             <path d='M12.8995 6.85431L17.1421 11.0969L7.24264 20.9964H3V16.7538L12.8995 6.85431ZM14.3137 5.44009L16.435 3.31877C16.8256 2.92825 17.4587 2.92825 17.8492 3.31877L20.6777 6.1472C21.0682 6.53772 21.0682 7.17089 20.6777 7.56141L18.5563 9.68273L14.3137 5.44009Z'></path>
                           </svg>
-                          <span className='text-[1.1rem] font-[600] my-auto'>
+                          <span className='text-[1.1rem] font-[600] my-auto text-[#0c0c12]'>
                             Edit
                           </span>
                         </button>

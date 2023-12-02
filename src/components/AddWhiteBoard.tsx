@@ -66,7 +66,7 @@ const AddWhiteBoard = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 1 }}
       className='w-[1090.2px] overflow-hidden px-4'
     >
       <form
@@ -224,10 +224,10 @@ const AddWhiteBoard = () => {
             />
           </div>
         </div>
-        <div className='flex items-center justify-between  pr-[0rem]'>
+        <div className='flex items-center justify-between  pr-[1.2rem]'>
           <button
             type='submit'
-            className='px-6 py-3 text-md w-[150px]  text-[1.1rem] font-bold !text-[#282B43] bg-[#F29E20] rounded-lg'
+            className='px-6 py-3 text-md w-[240px]  text-[1.1rem] font-bold !text-[#282B43] bg-[#F29E20] rounded-lg'
           >
             Apply
           </button>
@@ -239,7 +239,7 @@ const AddWhiteBoard = () => {
               els.forEach((_) => _.classList.remove('active'))
               els[0].classList.add('active')
             }}
-            className='px-6 py-3 text-md w-[150px]  text-[1.1rem] font-bold !text-[#282B43]  bg-[#f22020] rounded-lg mr-[.2rem]'
+            className='px-6 py-3 text-md w-[240px]  text-[1.1rem] font-bold !text-[#282B43]  bg-[#f22020] rounded-lg mr-[.2rem]'
           >
             Cancel
           </button>

@@ -52,7 +52,7 @@ const EditData = () => {
         })
       )
 
-      dispatch(toggleActive())
+      // dispatch(toggleActive())
       router('/')
     }
   }
@@ -63,8 +63,8 @@ const EditData = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className='  w-[1090.2px]'
+      transition={{ duration: 1 }}
+      className='  w-[1090.2px] px-4'
     >
       <form
         className='grid gap-[1.3rem]'
@@ -77,7 +77,20 @@ const EditData = () => {
               id='id'
               type='text'
               value={id}
-              className='pointer-events-none'
+              className={`${
+                idNotValid === 'wrong'
+                  ? 'wrong'
+                  : idNotValid === 'correct'
+                  ? 'correct'
+                  : ''
+              }`}
+              onChange={(e) => {
+                setId(e.currentTarget.value)
+
+                e.currentTarget.value === ''
+                  ? setIdNotValid('wrong')
+                  : setIdNotValid('correct')
+              }}
             />
           </div>
 
@@ -218,6 +231,7 @@ const EditData = () => {
             type='button'
             onClick={() => {
               router('/')
+              // dispatch(toggleActive())
               const els = document.querySelectorAll('.link')
               els.forEach((_) => _.classList.remove('active'))
               els[0].classList.add('active')

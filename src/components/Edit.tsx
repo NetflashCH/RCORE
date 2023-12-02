@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   cardActive,
   dataTypes,
@@ -20,12 +20,19 @@ const Edit: React.FC<EditType> = ({ item }) => {
   const disptch = useDispatch()
   const route = useNavigate()
 
+  const [render, setRender] = useState<boolean>(false)
+
+  useEffect(() => {
+    setRender(!render)
+    console.log('reder')
+  }, [disptch, store])
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 1 }}
       className=' w-[1090.2px] px-4  gap-6'
     >
       <div className='flex items-center justify-between mb-[2rem]'>
@@ -39,7 +46,6 @@ const Edit: React.FC<EditType> = ({ item }) => {
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            height='1em'
             viewBox='0 0 576 512'
             fill='#282B43'
             className='mt-[-.2rem]'
@@ -92,19 +98,19 @@ const Edit: React.FC<EditType> = ({ item }) => {
         <div className='flex items-center justify-between'>
           <button
             type='button'
-            className='px-6 py-3 text-md  font-bold text-[#282B43] bg-[#F29E20] rounded-lg'
+            className='px-[3rem] py-3 text-md  font-bold text-[#282B43] bg-[#F29E20] rounded-lg'
           >
             Change Position / Rotation
           </button>
           <button
             type='button'
-            className='px-6 py-3 text-md  font-bold text-[#282B43] bg-[#F29E20] rounded-lg'
+            className='px-[3rem] py-3 text-md  font-bold text-[#282B43] bg-[#F29E20] rounded-lg'
           >
             Chagnge Scaleform Rotation
           </button>
           <button
             type='button'
-            className='px-6 py-3 text-md  font-bold text-[#282B43] bg-[#F29E20] rounded-lg'
+            className='px-[3rem] py-3 text-md  font-bold text-[#282B43] bg-[#F29E20] rounded-lg'
           >
             Tleleport to Board
           </button>
@@ -117,7 +123,7 @@ const Edit: React.FC<EditType> = ({ item }) => {
               disptch(showEditData(item))
               route('/editcardData')
             }}
-            className='flex items-center gap-3 w-[150px] justify-center px-6 py-3 text-md  text-[#282B43] bg-[#F29E20] rounded-lg'
+            className='flex items-center gap-3 w-[240px] justify-center px-6 py-3 text-md  text-[#282B43] bg-[#F29E20] rounded-lg'
           >
             <svg
               width='24'
@@ -137,7 +143,7 @@ const Edit: React.FC<EditType> = ({ item }) => {
               disptch(deleteData(store.cardData))
               disptch(toggleActive())
             }}
-            className='flex items-center gap-3 w-[150px] justify-center px-6 py-3 text-md   text-[#282B43] bg-[#f22020] rounded-lg'
+            className='flex items-center gap-3 w-[240px] justify-center px-6 py-3 text-md   text-[#282B43] bg-[#f22020] rounded-lg'
           >
             <svg
               width='24'

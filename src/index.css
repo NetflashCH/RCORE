@@ -32,7 +32,7 @@ body {
 
 main {
   width: 100vw;
-  padding: 3rem;
+  padding: 3rem 1rem 3rem 3rem;
   background-color: var(--c-slate-800);
   border-radius: 1rem;
 }
@@ -70,7 +70,7 @@ main {
       border-radius: 0.5rem;
       border: 2px solid transparent;
       outline: none;
-      width: 475px;
+      width: 470px;
       font-size: 1.2rem;
     }
   }
@@ -83,18 +83,9 @@ main {
     opacity: 1;
   }
 
-  .tootip,
-  .tootip2 {
-    position: relative;
-
-    &:hover::after,
-    &:hover::before {
-      opacity: 1;
-    }
-  }
-
   .tootip::after,
-  .tootip2::after {
+  .tootip2::after,
+  .tootip3::after {
     position: absolute;
     top: 270%;
     transform: translateY(-50%);
@@ -122,8 +113,13 @@ main {
     content: 'Click for more details';
   }
 
+  .tootip3::after {
+    content: 'Click to search for users';
+  }
+
   .tootip::before,
-  .tootip2::before {
+  .tootip2::before,
+  .tootip3::before {
     content: '';
     position: absolute;
     left: 100%;
@@ -149,12 +145,31 @@ main {
     top: 50%;
     left: 80%;
   }
+  .tootip3::before {
+    top: 80%;
+    left: 5%;
+  }
+  .tootip3::after {
+    top: 140%;
+    left: 15%;
+  }
 
   .wrong {
     border: 2px solid red !important;
   }
   .correct {
     border: 2px solid green !important;
+  }
+
+  .tootip,
+  .tootip2,
+  .tootip3 {
+    position: relative;
+
+    &:hover::after,
+    &:hover::before {
+      opacity: 1;
+    }
   }
 
   main {
